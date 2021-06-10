@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col s6">
+        <?php echo Html::img('tonystark.jpg','Profe Tony', 'class="responsive-img"') ?>
+    </div>
+    <div class="col s6">
+        <?php
+            $opciones = array(
+                'Avenger'=>'Avenger',
+                'Tony' => 'Tony'
+            );
+            echo Html::lists($opciones, $type='ol');
+        ?>
+    </div>
+</div>

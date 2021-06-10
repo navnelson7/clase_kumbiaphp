@@ -1,0 +1,25 @@
+<?php echo View::content() ?>
+<h3>Listado de Alumnos</h3>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>Telefono</th>
+        <th>Acciones</th>
+    </thead>
+    <?php foreach($listaAlumno->items as $item): ?>
+        <tr>
+            <td><?php echo $item->id ?></td>
+            <td><?php echo $item->nombres ?></td>
+            <td><?php echo $item->apellidos ?></td>
+            <td><?php echo $item->edad ?></td>
+            <td><?php echo $item->telefono ?></td>
+            <td>
+                <?php echo Html::linkAction("edit/$item->id/",'Editar','class="btn green"') ?>
+                <?php echo Html::linkAction("del/$item->id/",'Borrar','class="btn red"') ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
