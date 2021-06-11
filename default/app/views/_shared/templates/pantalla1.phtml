@@ -10,10 +10,10 @@
 <body>
 <nav class="blue ligthen-3">
     <ul>
-        <li><a href="http://localhost/grupoa/alumnos">Alumnos</a></li>
-        <li><a href="http://localhost/grupoa/alumnos/create">Registro Alumnos</a></li>
-        <li><a href="http://localhost/grupoa/profesores">Profesores</a></li>
-        <li><a href="http://localhost/grupoa/profesores/historial">Historial Profesores</a></li>
+        <li><?php echo Html::link("alumnos","Listado Alumnos") ?></li>
+        <li><?php echo Html::link("alumnos/create", "Registro Alumnos") ;?></li>
+        <li><?php echo Html::link("profesores","Listado Profesores") ;?></li>        
+        <li><?php echo Html::link("profesores/create","Registro Profesores");?></li>
     </ul>
 </nav>
 <div class="container">

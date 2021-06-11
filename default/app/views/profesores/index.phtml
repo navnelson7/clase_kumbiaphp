@@ -1,14 +1,20 @@
-<div class="row">
-    <div class="col s6">
-        <?php echo Html::img('tonystark.jpg','Profe Tony', 'class="responsive-img"') ?>
-    </div>
-    <div class="col s6">
-        <?php
-            $opciones = array(
-                'Avenger'=>'Avenger',
-                'Tony' => 'Tony'
-            );
-            echo Html::lists($opciones, $type='ol');
-        ?>
-    </div>
-</div>
+<table>
+    <thead>
+        <td>id</td>
+        <td>Nombres</td>
+        <td>Apellidos</td>
+        <td>Especialidad</td>
+    </thead>
+    <?php foreach($listaProfesores->items as $item): ?>
+        <tr>
+            <td><?php echo $item->id;?></td>
+            <td><?php echo $item->nombres;?></td>
+            <td><?php echo $item->apellidos;?></td>
+            <td><?php echo $item->especialidad;?></td>
+            <td>
+                <?php echo Html::linkAction("edit/$item->id/",'Editar', 'class="btn green"'); ?>
+                <?php echo Html::linkAction("del/$item->id/",'Borrar', 'class="btn red"'); ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>

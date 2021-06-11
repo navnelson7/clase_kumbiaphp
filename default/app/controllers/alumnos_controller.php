@@ -1,6 +1,12 @@
 <?php
     Load::models('alumnos');
     class AlumnosController extends AppController{
+        public function index($page=1){
+            View::template('pantalla1');
+            $this->titulo = "Listado Alumnos";
+            $alumno = new Alumnos();
+            $this->listaAlumno = $alumno->getAlumnos($page);
+        }
 
         public function registro(){
             View::template('pantalla1');
@@ -8,12 +14,18 @@
         }
 
         public function create(){
-          
+                View::template('pantalla1');
+                if(Input::hasPost('alumnos')){
+                    $alumno = new Alumnos(Input::post('alumnos'));
+                    if($alumno->create()){
+                        Flash::valid('operacion exitosa');
+                        Input::delete();
+                    }else{
+                        Flash::error('fallo al guardar');
+                        
+                    }
                 }
-                Flash::error("Fallo la operacion");
-            }
         }
-
         public function edit($id){
             View::template('pantalla1');
             $alumno = new Alumnos();
